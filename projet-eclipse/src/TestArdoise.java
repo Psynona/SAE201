@@ -5,6 +5,7 @@ public class TestArdoise {
 		// TODO Auto-generated method stub
 		
 		Ardoise ardoise = new Ardoise();
+		System.out.println("COUCOU");
 		
 		ardoise.test();
 
