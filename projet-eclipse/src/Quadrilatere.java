@@ -18,6 +18,7 @@ public class Quadrilatere extends Forme implements DonneesForme {
     public Quadrilatere(Quadrilatere unQuadrilatere){
         
     	super(unQuadrilatere.getNomForme());
+    	this.points = new ArrayList<PointPlan>();
     	this.points = unQuadrilatere.getPoints();
         
     }
@@ -25,6 +26,7 @@ public class Quadrilatere extends Forme implements DonneesForme {
     	//champ a champ
     public Quadrilatere(String unNom, PointPlan p1, PointPlan p2){
     	super(unNom);
+    	this.points = new ArrayList<PointPlan>();
     	this.points.add(p1);
         this.points.add(p2);
         
@@ -85,7 +87,7 @@ public class Quadrilatere extends Forme implements DonneesForme {
 
     public String toString(){
     	String res = super.toString();
-        return res + "Cette forme est un Quadrilatère, il a pour points :" + this.points + ".";
+        return res + "Cette forme est un Quadrilatere, il a pour points :\n Point 1 = " + this.getPoint(0).toString() + "\n Point 2 = " + this.getPoint(1).toString();
     }
     
 
