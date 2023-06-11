@@ -29,7 +29,7 @@ public abstract class Forme {
 	public abstract ArrayList<Segment> dessiner();
 	
 	public String toString() {
-		return "Cette forme se nomme " + this.nomForme;
+		return "Nom de la forme : " + this.nomForme + "\n";
 	}
 	public abstract String typeForme();
-}
+} // fin classe Forme

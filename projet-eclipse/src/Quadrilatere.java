@@ -1,56 +1,125 @@
-
-public class Quadrilatere extends Forme implements DonneesForme {
-	import java.util.ArrayList;
-
+import java.util.*;
 import ardoise.*;
 
-    private ArrayList<PointPlan> points;
+import ardoise.PointPlan;
 
+public class Quadrilatere extends Forme implements DonneesForme {
+	
+	//variables spécifiques
+    private ArrayList<PointPlan> points;
+    
+    
+    //constructeurs
+    
+    	//vide
     public Quadrilatere(){}
 
+    	//par copie
     public Quadrilatere(Quadrilatere unQuadrilatere){
-        this.points = unQuadrilatere.points;
-        super(unQuadrilatere.nom);
+        
+    	super(unQuadrilatere.getNomForme());
+    	this.points = unQuadrilatere.getPoints();
+        
     }
 
-    public Quadrilatere(ArrayList<PointPlan> desPoints, String unNom){
-        this.points = desPoints;
-        super(unNom);
+    	//champ a champ
+    public Quadrilatere(String unNom, PointPlan p1, PointPlan p2){
+    	super(unNom);
+    	this.points.add(p1);
+        this.points.add(p2);
+        
     }
+    
+    //getters setters
+    
+    /*
+     * retourne la collection de points contenue dans la variable points
+     * */
+    public ArrayList<PointPlan> getPoints(){
+    	return this.points;
+    }
+    
+    /*
+     * retourne le point d'indice i contenu dans  points
+     * */
+    public PointPlan getPoint(int i){
+        return this.points.get(i);
+    }
+    
+    /*
+     * modifie les points de la collection points
+     */
 
     public void setPoints(PointPlan a, PointPlan b){
-        if (this.points.size() == 0) {
+        
+    	if (this.points.size() == 0) {
             this.points.add(a);
             this.points.add(b);
         }
+        
+        else {
+        	this.points.set(0, a);
+        	this.points.set(1, b);
+        }
     }
 
-    public void setPoint(int indice, PointPlan unPoint){
-        this.points.set(indice, unPoint);
+    /*
+     * remplace le point d'indice i par le point unPoint
+    */
+    public void setPoint(int i, PointPlan unPoint){
+        this.points.set(i, unPoint);
     }
-
-    public PointPlan getPoint(int indice){
-        return this.points.get(indice);
-    }
+    
+    
+    // methodes
 
     public String typeForme(){
         return "Q";
     }
 
+    
     public void deplacer(int deplacementX, int deplacementY){
-        int x = this.getPoint(0) + deplacementX;
-        int y = this.getPoint(1) + deplacementY;
-        this.setPoint(0, x);
-        this.setPoint(1, y);
+        this.getPoint(0).deplacer(deplacementX, deplacementY);
+    	this.getPoint(1).deplacer(deplacementX, deplacementY);
     }
 
     public String toString(){
-        return "Cette forme est un Quadrilatère, il a pour points :" + this.points + "et est de couleur bleu.";
+    	String res = super.toString();
+        return res + "Cette forme est un Quadrilatère, il a pour points :" + this.points + ".";
     }
+    
 
+    /*
+     * renvoie la liste de tous les segments 
+     * qui permettent de dessiner la forme
+     */
     public ArrayList<Segment> dessiner(){
-        //return a modifier car c'est une collection de segment qui doit être retournee
-    	return this.points;
+    	
+    	PointPlan pointDepart = this.getPoint(0);
+    	PointPlan pointArrivee = pointDepart;
+    	pointArrivee.deplacer(this.getPoint(1).getAbscisse(), 0);
+    	Segment s1 = new Segment(pointDepart, pointArrivee);
+    	
+    	
+    	pointDepart = pointArrivee;
+    	pointArrivee = this.getPoint(1);
+    	Segment s2 = new Segment(pointDepart, pointArrivee);
+    	
+    	
+    	pointDepart = this.getPoint(0);
+    	pointDepart.deplacer(0, pointArrivee.getOrdonnee());
+    	Segment s3 = new Segment(pointDepart, pointArrivee);
+    	
+    	pointArrivee = pointDepart;
+    	pointDepart = this.getPoint(0);
+    	Segment s4 = new Segment(pointDepart, pointArrivee);
+    	
+    	ArrayList<Segment> res = new ArrayList<Segment>();
+    	res.add(s1);
+    	res.add(s2);
+    	res.add(s3);
+    	res.add(s4);
+    	return res;
     }
 
-}
+} // fin classe Quadrilatere

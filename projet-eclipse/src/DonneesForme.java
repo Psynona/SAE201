@@ -1,7 +1,6 @@
 
 public interface DonneesForme {
-	//couleurs, types figures
+	//types figures possibles
 	String[] TYPES_FORMES = {"T", "Q", "C"};
-	
 
 }
