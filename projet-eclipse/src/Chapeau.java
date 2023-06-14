@@ -1,7 +1,7 @@
 import java.util.*;
 import ardoise.*;
 
-public class Chapeau extends Forme implements DonneesForme{
+public class Chapeau extends Forme {
 
 		
 	//variables spécifiques
