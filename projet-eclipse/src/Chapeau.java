@@ -52,18 +52,10 @@ public class Chapeau extends Forme {
      */
 
     public void setPoints(PointPlan a, PointPlan b, PointPlan c){
-        
-    	if (this.points.size() == 0) {
-            this.points.add(a);
-            this.points.add(b);
-            this.points.add(c);
-        }
-        
-        else {
+       
         	this.points.set(0, a);
         	this.points.set(1, b);
         	this.points.set(2, c);
-        }
     }
 
     /*

@@ -53,16 +53,9 @@ public class Quadrilatere extends Forme {
      */
 
     public void setPoints(PointPlan a, PointPlan b){
-        
-    	if (this.points.size() == 0) {
-            this.points.add(a);
-            this.points.add(b);
-        }
-        
-        else {
+ 
         	this.points.set(0, a);
         	this.points.set(1, b);
-        }
     }
 
     /*
