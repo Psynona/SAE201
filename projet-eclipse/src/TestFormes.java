@@ -100,6 +100,25 @@ public class TestFormes {
 
 				
 				// TEST DE CLASSE Maison
+				System.out.println("=========================================\nCLASSE MAISON\n=========================================");
+				Maison m1 = new Maison();
+				System.out.println(m1.typeForme());
+				Maison m2  = new Maison(q2,q3,c2, "Maison 2");
+				Maison m3 = new Maison(m2);
+				
+				System.out.println(m2);
+				System.out.println(m3);
+				m2.setCorps(q3);
+				m2.setPorte(q2);
+				m3.setToit(c4);
+				System.out.println(m2);
+				System.out.println(m3);
+				
+				m3.deplacer(10, 10);
+				System.out.println(m3);
+				
+				m2.dessiner();
+
 
 	} //fin du main
 
