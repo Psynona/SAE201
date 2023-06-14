@@ -1,7 +1,7 @@
 import java.util.*;
 import ardoise.*;
 
-public class Triangle extends Forme implements DonneesForme{
+public class Triangle extends Forme {
 	
 
 	//variables spécifiques
