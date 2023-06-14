@@ -8,11 +8,8 @@ public abstract class Forme {
 	
 	// constructeurs
 	public Forme() {}
-	public Forme(String unNomForme) {
-		this.nomForme = unNomForme;
-	}
-	public Forme(Forme uneForme) {
-		this.nomForme = uneForme.getNomForme();
+	public Forme(String nomForme) {
+		this.nomForme = nomForme;
 	}
 	// getters setters
 	public String getNomForme() {

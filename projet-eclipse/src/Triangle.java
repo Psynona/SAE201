@@ -82,7 +82,7 @@ public class Triangle extends Forme {
 
     public String toString(){
     	String res = super.toString();
-        return res + "Cette forme est un Triangle, il a pour points :\n Point 1 = " + this.getPoint(0).toString() + "\n Point 2 = " + this.getPoint(1).toString() + "\n Point 3 = " + this.getPoint(2).toString();
+        return res + "Nom de la forme : "+ this.getNomForme() +"\nCette forme est un Triangle, il a pour points :\n Point 1 = " + this.getPoint(0).toString() + "\n Point 2 = " + this.getPoint(1).toString() + "\n Point 3 = " + this.getPoint(2).toString();
     }
     
 

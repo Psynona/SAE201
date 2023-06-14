@@ -21,7 +21,7 @@ public class TestFormes {
 				System.out.println(t2);
 				
 				
-				t3.setNomForme("Tiangle 3");
+				t3.setNomForme("Triangle 3");
 				t3.setPoints(p4, p5, p6);
 				System.out.println(t3);
 				
@@ -62,6 +62,9 @@ public class TestFormes {
 				Chapeau c2 = new Chapeau("Chapeau 2",p1, p2, p3);
 				Chapeau c3 = new Chapeau(c2);
 				
+				Chapeau c4 = new Chapeau(c2);
+				c3.setNomForme("Chapeau 4");
+				
 				System.out.println(c2);
 				
 				
@@ -77,6 +80,26 @@ public class TestFormes {
 				System.out.println(c2);
 				
 				c3.dessiner();
+				
+				
+				
+				
+				// TEST DE CLASSE Etoile
+				System.out.println("=========================================\nCLASSE ETOILE\n=========================================");
+				Etoile e1 = new Etoile();
+				Etoile e2 = new Etoile(c1, c2, c3, c4, "Etoile 2");
+				Etoile e3 = new Etoile(e2);
+				System.out.print(" Laforme est de type: " + e1.typeForme() +"\n\n");
+				e3.setNomForme("Etoile 3");
+				e2.setChapeau(0, c4);
+				System.out.println(e3);
+				e3.deplacer(12, 2);
+				System.out.println(e3);
+				e2.dessiner();
+				
+
+				
+				// TEST DE CLASSE Maison
 
 	} //fin du main
 
