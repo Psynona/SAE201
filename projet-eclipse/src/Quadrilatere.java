@@ -3,7 +3,7 @@ import ardoise.*;
 
 import ardoise.PointPlan;
 
-public class Quadrilatere extends Forme implements DonneesForme {
+public class Quadrilatere extends Forme {
 	
 	//variables spécifiques
     private ArrayList<PointPlan> points;
@@ -76,7 +76,7 @@ public class Quadrilatere extends Forme implements DonneesForme {
     // methodes
 
     public String typeForme(){
-        return "Q";
+    	return "Q";
     }
 
     
