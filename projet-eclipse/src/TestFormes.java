@@ -4,12 +4,13 @@ public class TestFormes {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		PointPlan p1 = new PointPlan(12,15);
-		PointPlan p2 = new PointPlan(20,23);
-		PointPlan p3 = new PointPlan(16,14);
-		PointPlan p4 = new PointPlan(13,16);
-		PointPlan p5 = new PointPlan(21,24);
-		PointPlan p6 = new PointPlan(17,15);
+		PointPlan p1 = new PointPlan(6,13);
+		PointPlan p2 = new PointPlan(10,17);
+		PointPlan p3 = new PointPlan(14,13);
+		PointPlan p4 = new PointPlan(19,13);
+		PointPlan p5 = new PointPlan(22,10);
+		PointPlan p6 = new PointPlan(25,13);
+
 
 				// TEST DE CLASSE Triangle
 				

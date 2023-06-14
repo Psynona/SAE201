@@ -44,7 +44,13 @@ public class Triangle extends Forme {
      * retourne le point d'indice i contenu dans  points
      * */
     public PointPlan getPoint(int i){
-        return this.points.get(i);
+        try{
+            return this.points.get(i);
+        }
+        catch (IndexOutOfBoundsException e){
+            System.out.println("Vous avez saisi un indice trop élevé"+ e);
+            return this.points.get(0);
+        }
     }
     
     /*
@@ -52,17 +58,30 @@ public class Triangle extends Forme {
      */
 
     public void setPoints(PointPlan a, PointPlan b, PointPlan c){
-        
+        try{
         	this.points.set(0, a);
         	this.points.set(1, b);
         	this.points.set(2, c);
+        }
+        catch(IllegalStateException e) {
+            System.out.println("Vous avez oublié un ou plusieurs paramètres"+ e);
+            
+        }
     }
 
     /*
      * remplace le point d'indice i par le point unPoint
     */
     public void setPoint(int i, PointPlan unPoint){
-        this.points.set(i, unPoint);
+        try{
+            this.points.set(i, unPoint);
+        }
+        catch(IllegalStateException e) {
+            System.out.println("Vous avez oublié un ou plusieurs paramètres"+ e);
+        }
+        catch(IndexOutOfBoundsException e) {
+            System.out.println("Vous avez saisi un indice trop élevé"+ e);
+        }
     }
     
     
@@ -74,10 +93,14 @@ public class Triangle extends Forme {
 
     
     public void deplacer(int deplacementX, int deplacementY){
-        this.getPoint(0).deplacer(deplacementX, deplacementY);
-    	this.getPoint(1).deplacer(deplacementX, deplacementY);
-    	this.getPoint(2).deplacer(deplacementX, deplacementY);
-
+        try {
+            this.getPoint(0).deplacer(deplacementX, deplacementY);
+            this.getPoint(1).deplacer(deplacementX, deplacementY);
+            this.getPoint(2).deplacer(deplacementX, deplacementY);
+        }
+        catch (NullPointerException e) {
+            System.out.println("Il n'y a pas assez de segments"+ e);
+        }
     }
 
     public String toString(){
@@ -91,25 +114,29 @@ public class Triangle extends Forme {
      * qui permettent de dessiner la forme
      */
     public ArrayList<Segment> dessiner(){
-    	
-    	PointPlan pointDepart = this.getPoint(0);
-    	PointPlan pointArrivee = this.getPoint(1);
-    	Segment s1 = new Segment(pointDepart, pointArrivee);
-    	
-    	
-    	pointDepart = pointArrivee;
-    	pointArrivee = this.getPoint(2);
-    	Segment s2 = new Segment(pointDepart, pointArrivee);
-    	
-    	pointDepart = this.getPoint(0);
-    	Segment s3 = new Segment(pointDepart, pointArrivee);
-    	
-    	
-    	ArrayList<Segment> res = new ArrayList<Segment>();
-    	res.add(s1);
-    	res.add(s2);
-    	res.add(s3);
-    	return res;
+    	try{
+            PointPlan pointDepart = this.getPoint(0);
+            PointPlan pointArrivee = this.getPoint(1);
+            Segment s1 = new Segment(pointDepart, pointArrivee);
+            
+            
+            pointDepart = pointArrivee;
+            pointArrivee = this.getPoint(2);
+            Segment s2 = new Segment(pointDepart, pointArrivee);
+            
+            pointDepart = this.getPoint(0);
+            Segment s3 = new Segment(pointDepart, pointArrivee);
+            
+            
+            ArrayList<Segment> res = new ArrayList<Segment>();
+            res.add(s1);
+            res.add(s2);
+            res.add(s3);
+            return res;
+        }
+        catch (NullPointerException e) {
+            System.out.println("Il n'y a pas assez de segments"+ e);
+        }
     }
 
 

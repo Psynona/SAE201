@@ -4,7 +4,7 @@ public class Etoile extends Forme {
 	
     private ArrayList<Chapeau> chapeaux;
 
-    public Etoile(){}
+    public Etoile(){} 
 
     public Etoile(Etoile uneEtoile) {
     	super(uneEtoile.getNomForme());
