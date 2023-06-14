@@ -9,9 +9,11 @@ public class TestArdoise {
 		PointPlan p1 = new PointPlan(12,15);
 		PointPlan p2 = new PointPlan(20,23);
 		System.out.println(p1+"et"+p2);
-		Triangle t = new Triangle();
+		Forme t = new Triangle();
 		
 		ardoise.ajouterForme(t);
+		
+		ardoise.dessinerGraphique();
 		
 		ardoise.test();
 		
@@ -19,3 +21,4 @@ public class TestArdoise {
 	}
 
 }
+
